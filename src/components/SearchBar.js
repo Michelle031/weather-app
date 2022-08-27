@@ -15,7 +15,6 @@ function SearchBar({ onClick }) {
       isOptimisticGeolocationEnabled: true,
     });
 
-  console.log(coords);
   const dispatch = useDispatch();
 
   useEffect(() => {
