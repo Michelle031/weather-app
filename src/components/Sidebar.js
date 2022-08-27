@@ -16,6 +16,7 @@ function Sidebar() {
   let inputs = useSelector((state) => state.input.inputs);
   inputs = [...new Set(inputs)];
   const dispatch = useDispatch();
+  console.log(weather);
 
   const submitHandler = (e) => {
     e.preventDefault();

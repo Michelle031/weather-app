@@ -1,6 +1,6 @@
 import React from "react";
 import SmallCard from "./SmallCard";
-import { NearMe } from "@mui/icons-material";
+import { Navigation } from "@mui/icons-material";
 import ProgressBar from "./ProgressBar";
 import { useDispatch, useSelector } from "react-redux";
 import { setTemp } from "../features/tempSlice";
@@ -20,6 +20,8 @@ function Main() {
     m = m.toString();
     return m.replace(".", ",");
   };
+
+  let degrees = weather?.[0].wind_dir + "deg";
 
   return (
     <div className="bg-[#100E1D] w-full  p-4 md:py-10 flex flex-col md:px-[150px]">
@@ -57,18 +59,18 @@ function Main() {
           </h1>
           <h3 className="text-[14px] font-medium ">
             <span>
-              <NearMe
+              <Navigation
                 sx={{
                   background: "#FFFFFF4D",
                   padding: "6px",
                   borderRadius: "50%",
-                  rotate: "180deg",
+                  rotate: degrees,
                   fontSize: "33px",
                   marginRight: "8px",
                 }}
               />
             </span>{" "}
-            WSW
+            {weather?.[0]?.wind_cdir}
           </h3>
         </div>
         <div className="card h-[200px]">
