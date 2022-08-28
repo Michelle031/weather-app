@@ -31,6 +31,15 @@ function App() {
           .then((data) => data.json())
           .catch((err) => console.log(err));
         dispatch(setWeather(res2.data));
+        if (input) {
+          dispatch(setName(input));
+          const res2 = await fetch(
+            `https://api.weatherbit.io/v2.0/forecast/daily?city=${input}&key=f50fe99d799c4c3085241e8380601997&days=6&units=${temp}`
+          )
+            .then((data) => data.json())
+            .catch((err) => console.log(err));
+          dispatch(setWeather(res2.data));
+        }
       } else {
         const res = await fetch(
           `https://api.weatherbit.io/v2.0/forecast/daily?city=Helsinki&key=f50fe99d799c4c3085241e8380601997&days=6&units=${temp}`
@@ -39,25 +48,19 @@ function App() {
           .catch((err) => console.log(err));
         dispatch(setName("Helsinki"));
         dispatch(setWeather(res.data));
+        if (input) {
+          dispatch(setName(input));
+          const res2 = await fetch(
+            `https://api.weatherbit.io/v2.0/forecast/daily?city=${input}&key=f50fe99d799c4c3085241e8380601997&days=6&units=${temp}`
+          )
+            .then((data) => data.json())
+            .catch((err) => console.log(err));
+          dispatch(setWeather(res2.data));
+        }
       }
     };
     fetchData();
-  }, [dispatch, temp, input, lat, long]);
-
-  useEffect(() => {
-    const inputFn = async () => {
-      if (input) {
-        dispatch(setName(input));
-        const res2 = await fetch(
-          `https://api.weatherbit.io/v2.0/forecast/daily?city=${input}&key=f50fe99d799c4c3085241e8380601997&days=6&units=${temp}`
-        )
-          .then((data) => data.json())
-          .catch((err) => console.log(err));
-        dispatch(setWeather(res2.data));
-      }
-    };
-    inputFn();
-  }, [dispatch, temp, input]);
+  }, [temp, input, lat, long]);
 
   return (
     <div className="App h-full flex flex-col md:flex-row ">

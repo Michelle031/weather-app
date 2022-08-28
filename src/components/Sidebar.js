@@ -64,8 +64,11 @@ function Sidebar() {
           <div className="self-end" onClick={() => setHide(true)}>
             <Close />
           </div>
-          <form className="flex max-w-full " onSubmit={submitHandler}>
-            <div className="border text-base border-[#E7E7EB] p-1 md:p-4 flex space-x-4 items-center justify-between text-[#616475]">
+          <form
+            className="flex flex-col md:flex-row w-full space-y-3 items-center"
+            onSubmit={submitHandler}
+          >
+            <div className="border text-sm md:text-base max-w-full border-[#E7E7EB] p-4 flex  space-x-4 items-center justify-between text-[#616475]">
               <Search />
               <input
                 type="text"
@@ -74,7 +77,7 @@ function Sidebar() {
                 ref={inputRef}
               />
             </div>
-            <button className="px-5 py-4 ml-4 text-[#E7E7EB] text-base bg-[#3C47E9]">
+            <button className="px-5 py-4  md:ml-4 text-[#E7E7EB] text-base bg-[#3C47E9]">
               Search
             </button>
           </form>
