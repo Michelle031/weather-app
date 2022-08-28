@@ -26,8 +26,8 @@ function Sidebar() {
 
   return (
     <div
-      className={`clouds flex flex-col items-center bg-[#1E213A] w-full md:min-w-[469px] md:max-w-[469px]  text-[#A09FB1] p-5  md:p-10 text-base ${
-        hide ? "justify-between space-y-20" : " space-y-8"
+      className={`clouds flex flex-col items-center bg-[#1E213A] w-full md:min-w-[450px] md:max-w-[450px]  text-[#A09FB1] p-5  md:p-10 text-base ${
+        hide ? "justify-between space-y-20" : " space-y-8 h-screen"
       }  `}
     >
       {hide ? (
@@ -64,7 +64,7 @@ function Sidebar() {
           <div className="self-end" onClick={() => setHide(true)}>
             <Close />
           </div>
-          <form className="flex w-full" onSubmit={submitHandler}>
+          <form className="flex max-w-full " onSubmit={submitHandler}>
             <div className="border text-base border-[#E7E7EB] p-1 md:p-4 flex space-x-4 items-center justify-between text-[#616475]">
               <Search />
               <input

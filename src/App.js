@@ -40,6 +40,12 @@ function App() {
         dispatch(setName("Helsinki"));
         dispatch(setWeather(res.data));
       }
+    };
+    fetchData();
+  }, [dispatch, temp, input, lat, long]);
+
+  useEffect(() => {
+    const inputFn = async () => {
       if (input) {
         dispatch(setName(input));
         const res2 = await fetch(
@@ -50,8 +56,8 @@ function App() {
         dispatch(setWeather(res2.data));
       }
     };
-    fetchData();
-  }, [dispatch, temp, input, lat, long]);
+    inputFn();
+  }, [dispatch, temp, input]);
 
   return (
     <div className="App h-full flex flex-col md:flex-row ">
