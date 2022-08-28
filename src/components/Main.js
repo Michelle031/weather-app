@@ -24,7 +24,7 @@ function Main() {
   let degrees = weather?.[0].wind_dir + "deg";
 
   return (
-    <div className="bg-[#100E1D] w-full  p-4  md:p-0 md:py-10 flex flex-col md:px-[150px]">
+    <div className="bg-[#100E1D] w-full  p-4  md:p-0 md:py-10 flex flex-col md:px-[100px]">
       <div className="space-x-6 flex self-end mr-5 md:mr-0">
         <button
           title="M"
@@ -41,7 +41,7 @@ function Main() {
           &#176;F
         </button>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-5 mt-10 gap-7 px-6 md:px-0">
+      <div className="grid grid-cols-2 md:grid-cols-5 mt-10 gap-7 px-2 md:px-0">
         {array.map((data, index) => (
           <SmallCard key={index} data={data} />
         ))}

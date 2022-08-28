@@ -14,7 +14,7 @@ function SmallCard({ data }) {
         <img
           src={`/images/${img}.png `}
           alt=""
-          className="w-full h-full scale-105"
+          className="w-full h-full scale-105 object-contain"
         />
       </div>
       <div className="flex space-x-2">
