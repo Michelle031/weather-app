@@ -22,7 +22,7 @@ function App() {
         )
           .then((data) => data.json())
           .catch((err) => console.log(err));
-        const name = res.data.city_name;
+        const name = res.data?.[0].city_name;
         console.log(res);
         dispatch(setName(res.data.city_name));
         const res2 = await fetch(
