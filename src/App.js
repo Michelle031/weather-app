@@ -50,7 +50,7 @@ function App() {
       }
     };
     fetchData();
-  }, [dispatch, temp, input]);
+  }, [dispatch, temp, input, lat, long]);
 
   return (
     <div className="App h-full flex flex-col md:flex-row ">
