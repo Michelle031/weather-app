@@ -28,9 +28,8 @@ function SearchBar({ onClick }) {
         dispatch(setName(res.data?.[0].city_name));
       }
     };
-    console.log(coords);
     getName();
-  }, [dispatch, coords]);
+  }, []);
 
   return (
     <div
