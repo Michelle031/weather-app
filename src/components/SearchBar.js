@@ -21,14 +21,14 @@ function SearchBar({ onClick }) {
     const getName = async () => {
       if (coords) {
         const res = await fetch(
-          `https://api.weatherbit.io/v2.0/current?lat=${coords?.latitude}96&lon=${coords?.longitude}&key=25800db482254c18b92aa6ba2620bd4c`
+          `https://api.weatherbit.io/v2.0/current?lat=${coords.latitude}96&lon=${coords.longitude}&key=25800db482254c18b92aa6ba2620bd4c`
         )
           .then((data) => data.json())
           .catch((err) => console.log(err));
         dispatch(setName(res.data?.[0].city_name));
       }
     };
-    getName();
+    setTimeout(getName, 3000);
   }, []);
 
   return (
