@@ -23,31 +23,25 @@ function App() {
           .then((data) => data.json())
           .catch((err) => console.log(err));
         const name = res.data?.[0].city_name;
-        console.log(res);
-        dispatch(setName(name));
-        const res2 = await fetch(
-          `https://api.weatherbit.io/v2.0/forecast/daily?city=${name}&key=f50fe99d799c4c3085241e8380601997&days=6&units=${temp}`
-        )
-          .then((data) => data.json())
-          .catch((err) => console.log(err));
-        dispatch(setWeather(res2.data));
+
         if (input) {
           dispatch(setName(input));
           const res2 = await fetch(
             `https://api.weatherbit.io/v2.0/forecast/daily?city=${input}&key=f50fe99d799c4c3085241e8380601997&days=6&units=${temp}`
+          )
+            .then((data) => data.json())
+            .catch((err) => console.log(err));
+          dispatch(setWeather(res2.data));
+        } else {
+          dispatch(setName(name));
+          const res2 = await fetch(
+            `https://api.weatherbit.io/v2.0/forecast/daily?city=${name}&key=f50fe99d799c4c3085241e8380601997&days=6&units=${temp}`
           )
             .then((data) => data.json())
             .catch((err) => console.log(err));
           dispatch(setWeather(res2.data));
         }
       } else {
-        const res = await fetch(
-          `https://api.weatherbit.io/v2.0/forecast/daily?city=Helsinki&key=f50fe99d799c4c3085241e8380601997&days=6&units=${temp}`
-        )
-          .then((data) => data.json())
-          .catch((err) => console.log(err));
-        dispatch(setName("Helsinki"));
-        dispatch(setWeather(res.data));
         if (input) {
           dispatch(setName(input));
           const res2 = await fetch(
@@ -56,6 +50,14 @@ function App() {
             .then((data) => data.json())
             .catch((err) => console.log(err));
           dispatch(setWeather(res2.data));
+        } else {
+          const res = await fetch(
+            `https://api.weatherbit.io/v2.0/forecast/daily?city=Helsinki&key=f50fe99d799c4c3085241e8380601997&days=6&units=${temp}`
+          )
+            .then((data) => data.json())
+            .catch((err) => console.log(err));
+          dispatch(setName("Helsinki"));
+          dispatch(setWeather(res.data));
         }
       }
     };
