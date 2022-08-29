@@ -24,7 +24,7 @@ function Main() {
   let degrees = weather?.[0].wind_dir + "deg";
 
   return (
-    <div className="bg-[#100E1D] w-full  p-4  lg:p-0 lg:py-10 flex flex-col lg:px-[100px]">
+    <div className="bg-[#100E1D] flex-[0.7] p-4  lg:p-0 lg:py-10 flex flex-col lg:px-[50px]">
       <div className="space-x-6 flex self-end mr-5 lg:mr-0">
         <button
           title="M"

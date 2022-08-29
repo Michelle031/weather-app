@@ -26,7 +26,7 @@ function App() {
   }, [dispatch, name, temp]);
 
   return (
-    <div className="App h-full flex flex-col md:flex-row ">
+    <div className="App h-full flex flex-col md:flex-row">
       {weather.length === 0 ? (
         <CircularProgress />
       ) : (

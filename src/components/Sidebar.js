@@ -28,7 +28,7 @@ function Sidebar() {
 
   return (
     <div
-      className={`clouds flex flex-col items-center bg-[#1E213A] w-full md:min-w-[450px] md:max-w-[450px]  text-[#A09FB1] p-5  md:p-10 text-base ${
+      className={`clouds flex flex-col items-center bg-[#1E213A] w-full flex-[0.3]  text-[#A09FB1] p-5 md:p-10 text-base ${
         hide ? "justify-between space-y-20" : " space-y-8 h-screen"
       }  `}
     >
