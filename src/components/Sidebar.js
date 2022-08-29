@@ -3,8 +3,9 @@ import SearchBar from "./SearchBar";
 import { Place, Close, Search, ChevronRight } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { formatDate } from "../lib/getDate";
-import { addInputs, setInput } from "../features/inputSlice";
+import { addInputs } from "../features/inputSlice";
 import { getImage } from "../lib/getImage";
+import { setName } from "../features/locationSlice";
 
 function Sidebar() {
   const [hide, setHide] = useState(true);
@@ -16,10 +17,11 @@ function Sidebar() {
   let inputs = useSelector((state) => state.input.inputs);
   inputs = [...new Set(inputs)];
   const dispatch = useDispatch();
+  console.log(formatDate(weather?.[0]?.valid_date));
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(setInput(inputRef.current.value));
+    dispatch(setName(inputRef.current.value));
     dispatch(addInputs(inputRef.current.value));
     inputRef.current.value = "";
   };
@@ -85,7 +87,7 @@ function Sidebar() {
             {inputs.map((input, i) => (
               <p
                 key={i}
-                onClick={() => dispatch(setInput(input))}
+                onClick={() => dispatch(setName(input))}
                 className="w-full px-3 py-6 flex items-center group justify-between text-[#E7E7EB] text-base hover:border hover:border-[#E7E7EB]"
               >
                 {input}

@@ -2,7 +2,7 @@ import { GpsFixed } from "@mui/icons-material";
 import React, { useEffect } from "react";
 import { useGeolocated } from "react-geolocated";
 import { useDispatch } from "react-redux";
-import { setLocation } from "../features/locationSlice";
+import { setName } from "../features/locationSlice";
 
 function SearchBar({ onClick }) {
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
@@ -18,13 +18,19 @@ function SearchBar({ onClick }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(
-      setLocation({
-        lat: coords?.latitude,
-        long: coords?.longitude,
-      })
-    );
-  }, [coords, dispatch]);
+    const getName = async () => {
+      if (coords) {
+        const res = await fetch(
+          `https://api.weatherbit.io/v2.0/current?lat=${coords?.latitude}96&lon=${coords?.longitude}&key=f50fe99d799c4c3085241e8380601997`
+        )
+          .then((data) => data.json())
+          .catch((err) => console.log(err));
+        dispatch(setName(res.data?.[0].city_name));
+      }
+    };
+    console.log(coords);
+    getName();
+  }, [dispatch, coords]);
 
   return (
     <div
