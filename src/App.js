@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const res2 = await fetch(
-        `https://api.weatherbit.io/v2.0/forecast/daily?city=${name}&key=f50fe99d799c4c3085241e8380601997&days=6&units=${temp}`
+        `https://api.weatherbit.io/v2.0/forecast/daily?city=${name}&key=25800db482254c18b92aa6ba2620bd4c&days=6&units=${temp}`
       )
         .then((data) => data.json())
         .catch((err) => console.log(err));

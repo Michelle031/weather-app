@@ -67,7 +67,7 @@ function Sidebar() {
             <Close />
           </div>
           <form
-            className="flex flex-col md:flex-row w-full space-y-3 items-center"
+            className="flex flex-col md:flex-row w-full space-y-3 md:space-y-0 items-center"
             onSubmit={submitHandler}
           >
             <div className="border text-sm md:text-base max-w-full border-[#E7E7EB] p-4 flex  space-x-4 items-center justify-between text-[#616475]">
